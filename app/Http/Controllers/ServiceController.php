@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Promotion;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::simplePaginate(2);
+        $services = Service::simplePaginate(10);
         return view('Service.index', compact('services'));
     }
 
@@ -25,9 +26,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('service.create');
+        $promotions = Promotion::All();
+        return view('Service.create', compact('promotions'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -42,7 +43,7 @@ class ServiceController extends Controller
         $service->tiempo_maximo = $request->tiempo_maximo;
         $service->costo_extra = $request->costo_extra;
         $service->clave = $request->clave;
-        $service->promotions_id = $request->promotions_id;
+        $service->promotions_id = $request->promotion_id;
         $service->save();
         return redirect()->route('service.create');
     }

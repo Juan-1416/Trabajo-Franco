@@ -17,7 +17,7 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        $quotes = Quote::simplePaginate(2);
+        $quotes = Quote::simplePaginate(10);
         return view('Quote.index', compact('quotes'));
     }
 

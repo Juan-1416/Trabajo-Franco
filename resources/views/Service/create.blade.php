@@ -27,8 +27,14 @@
             <input type="number" name="clave">
         </div>
         <div class="col">
-            <label>Promocion</label>
-            <input type="number" name="promotions_id">
+            <label for="cars">Promocion</label>
+            <select id="cars" name="promotion_id">
+                <option selected="true" disabled="disabled">promocion</option>
+                @foreach ($promotions as $promotion)
+                    <option value="{{ $promotion->id }}">{{ $promotion->nombres }}</option>
+                @endforeach
+
+            </select>
         </div>
                 <input type="submit" name="btn_enviar" value="Registrar">
     </form>

@@ -14,7 +14,7 @@ class WaytopayController extends Controller
      */
     public function index()
     {
-        $waytopays = Waytopay::simplePaginate(2);
+        $waytopays = Waytopay::simplePaginate(10);
         return view('Waytopay.index', compact('waytopays'));
     }
 
