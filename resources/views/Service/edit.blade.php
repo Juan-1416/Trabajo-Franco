@@ -4,7 +4,8 @@
 
 
 
-    <form action="{{ route('service.store') }}" method="post">
+    <form action="{{ route('service.update', $service) }}" method="post">
+        @method('PUT')
         {{ csrf_field() }}
         <div class="col">
             <label>Nombres</label>
@@ -30,6 +31,6 @@
             <label>Promocion</label>
             <input type="number" name="promotions_id" value="{{$service->promotions_id}}">
         </div>
-                <input type="submit" name="btn_enviar" value="Registrar">
+                <input type="submit" name="btn_enviar" value="Actualizar">
     </form>
 @endsection

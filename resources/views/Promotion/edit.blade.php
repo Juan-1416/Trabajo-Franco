@@ -4,7 +4,8 @@
 
 
 
-    <form action="{{ route('promotion.store') }}" method="post">
+    <form action="{{ route('promotion.update', $promotion) }}" method="post">
+        @method('PUT')
         {{ csrf_field() }}
         <div class="col">
             <label>Nombres</label>
